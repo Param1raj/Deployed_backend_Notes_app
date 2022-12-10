@@ -29,9 +29,9 @@ UserRouter.post('/signup',async(req,res)=>{
 })
 
 UserRouter.post('/login',async(req,res)=>{
-    let payload = req.body;
+    let {email} = req.body;
     try {
-        
+        let user = await UserModel.find({email});
     } catch (error) {
         console.log(error);
     }
