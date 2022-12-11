@@ -53,17 +53,15 @@ NoteRouter.delete("/delete/:id",async (req,res)=>{
     let payload = req.body;
     try {
         let note = await NotesModel.findOne({_id:id});
-        console.log(note);
+        // console.log(note);
         if(note.user_id === user_id){
-            await NotesModel.findByIdDelete({_id:id});
-            res.send({
-                "msg":"update"
-            });
-            
+             await NotesModel.findByIdAndDelete({_id:id});
+             res.send({"msg":"update"});
         }else {
-            res.send("Note doesn't exist")
+            res.send({"msg":"Note doesn't exist"})
         }     
     } catch (error) {
+        res.send({"msg":"Something wents wrong"});
         console.log(error);
     }
 })
