@@ -10,7 +10,9 @@ const {Authentication} = require("./middleware/authentication");
 
 app.use(express.json());
 app.use("/user",UserRouter);
-
+app.use(cors({
+    origin : "*"
+}))
 
 app.get("/",(req,res)=>{
     res.send("Welcome to this api")
