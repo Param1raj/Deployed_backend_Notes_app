@@ -13,7 +13,11 @@ NoteRouter.get("/",async(req,res)=>{
     }
 })
 
-
+/*{
+  "title":"my four Note",
+  "Note":"This is demo note to check my api",
+  "Categories":["Personal"]
+} */
 NoteRouter.post("/create",async (req,res)=>{
     let {title,Note,Categories,user_id} = req.body;
     console.log(user_id);
@@ -50,7 +54,7 @@ NoteRouter.patch("/update/:id",async (req,res)=>{
 NoteRouter.delete("/delete/:id",async (req,res)=>{
     let id = req.params.id;
     let user_id = req.body.user_id;
-    let payload = req.body;
+    // let payload = req.body;
     try {
         let note = await NotesModel.findOne({_id:id});
         // console.log(note);

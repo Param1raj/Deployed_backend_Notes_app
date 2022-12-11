@@ -13,12 +13,11 @@ UserRouter.post('/signup', async (req, res) => {
         console.log(data);
         if (data.length <= 0) {
             bcrypt.hash(password, 3).then(async function (hash) {
-                // Store hash in your password DB.
                 let user = await UserModel.insertMany([{ email, password: hash, name, age }]);
                 // await user.save();
                 res.send("Register")
             });
-            res.send("User already exist, please login");
+            // res.send("User already exist, please login");
         }
         else {
             res.send("User Already exist, please login");

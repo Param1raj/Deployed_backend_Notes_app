@@ -9,12 +9,13 @@ const {Authentication} = require("./middleware/authentication");
 
 
 app.use(express.json());
-// console.log(UserRouter);
 app.use("/user",UserRouter);
+
 
 app.get("/",(req,res)=>{
     res.send("Welcome to this api")
 })
+
 app.use(Authentication);
 app.use("/notes",NoteRouter);
 app.listen(Number(process.env.PORT),async()=>{
