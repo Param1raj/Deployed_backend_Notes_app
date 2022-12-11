@@ -4,6 +4,7 @@ const app = express();
 const { connection } = require("./config/db");
 const {UserRouter} = require('./routes/user.route');
 const {NoteRouter} = require('./routes/note.route');
+const cors = require("cors")
 require('dotenv').config();
 const {Authentication} = require("./middleware/authentication");
 
